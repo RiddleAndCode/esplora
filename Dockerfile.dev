@@ -10,6 +10,6 @@ USER node
 
 COPY --chown=node:node . .
 
-RUN npm install
+RUN rm -rf terraform prerender-server contrib
 
-EXPOSE 5000
+RUN npm install

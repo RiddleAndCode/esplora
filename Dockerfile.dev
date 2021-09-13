@@ -1,0 +1,15 @@
+FROM node:alpine
+
+RUN mkdir -p /usr/src/app && chown -R node:node /usr/src/app
+
+WORKDIR /usr/src/app
+
+COPY package.json babel.config.json ./
+
+USER node
+
+COPY --chown=node:node . .
+
+RUN npm install
+
+EXPOSE 5000
